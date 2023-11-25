@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monte Carlo estimates of Pi in 100% CSS</title>
+    <meta name="title" content="Monte Carlo estimates of Pi in 100% CSS"/>
+    <meta name="description" content="Calculate Pi with Monte Carlo method in 100% CSS using The CPU Hack" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://repos.ryoga.dev/css-monte-carlo-pi/" />
+    <meta property="og:title" content="Monte Carlo estimates of Pi in 100% CSS" />
+    <meta property="og:description" content="Calculate Pi with Monte Carlo method in 100% CSS using The CPU Hack" />
+    <link href="./monte-carlo-pi.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Monte Carlo estimates of Pi in 100% CSS</h1>
+        <a href="https://github.com/Ryoga-exe/css-monte-carlo-pi">GitHub</a>
+      </div>
+    </header>
+    <main class="container">
+      <div class="display-frame-count"></div>
+      <div class="display-p-binary"></div>
+      <div class="display-x"></div>
+      <div class="display-y"></div>
+      <div class="display-inner"></div>
+      <div class="display-count"></div>
+      <div class="display-pi"></div>
+      <div class="canvas">
+        <div class="point"></div>
+        <div class="circle"></div>
+      </div>
+      <ol class="cpu">
+        <li class="phase-0"></li>
+        <li class="phase-1"></li>
+        <li class="phase-2"></li>
+        <li class="phase-3"></li>
+      </ol>
+      <hr />
+      <div class="description">
+        <h2>About this</h2>
+        <p>
+          Calculate <a href="https://en.wikipedia.org/wiki/Pi">Pi</a> with <a href="https://en.wikipedia.org/wiki/Monte_Carlo_method">Monte Carlo method</a> in 100% CSS using the CSS trick called <a href="https://dev.to/janeori/expert-css-the-cpu-hack-4ddj">The CPU Hack</a>.
+          (no JavaScript!)
+        </p>
+        <p>
+          A "CPU Hack" implies unlocking the ability for continuous crunching of data and re-evaluation of state.
+        </p>
+        <div class="note">
+          <p>
+            Note: This has been confirmed to work with Google Chrome version 119.0.6045.160 and Microsoft Edge 119.0.2151.72.
+            It may not function correctly with other browsers.
+          </p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

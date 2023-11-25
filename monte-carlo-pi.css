@@ -1,0 +1,628 @@
+body {
+  animation: hoist 1ms infinite, capture 1ms infinite;
+  animation-play-state: paused, paused;
+
+  --frame-input: var(--frame-hoist, 0);
+  --frame-count: calc(var(--frame-input) + 1);
+
+  --p31-input: var(--p31-hoist, 1);
+  --p30-input: var(--p30-hoist, 0);
+  --p29-input: var(--p29-hoist, 0);
+  --p28-input: var(--p28-hoist, 1);
+  --p27-input: var(--p27-hoist, 0);
+  --p26-input: var(--p26-hoist, 0);
+  --p25-input: var(--p25-hoist, 1);
+  --p24-input: var(--p24-hoist, 0);
+  --p23-input: var(--p23-hoist, 1);
+  --p22-input: var(--p22-hoist, 1);
+  --p21-input: var(--p21-hoist, 0);
+  --p20-input: var(--p20-hoist, 1);
+  --p19-input: var(--p19-hoist, 0);
+  --p18-input: var(--p18-hoist, 1);
+  --p17-input: var(--p17-hoist, 1);
+  --p16-input: var(--p16-hoist, 0);
+  --p15-input: var(--p15-hoist, 1);
+  --p14-input: var(--p14-hoist, 0);
+  --p13-input: var(--p13-hoist, 0);
+  --p12-input: var(--p12-hoist, 0);
+  --p11-input: var(--p11-hoist, 1);
+  --p10-input: var(--p10-hoist, 1);
+  --p09-input: var(--p09-hoist, 0);
+  --p08-input: var(--p08-hoist, 0);
+  --p07-input: var(--p07-hoist, 1);
+  --p06-input: var(--p06-hoist, 0);
+  --p05-input: var(--p05-hoist, 1);
+  --p04-input: var(--p04-hoist, 0);
+  --p03-input: var(--p03-hoist, 0);
+  --p02-input: var(--p02-hoist, 0);
+  --p01-input: var(--p01-hoist, 1);
+  --p00-input: var(--p00-hoist, 0);
+
+  --inside-count-input: var(--inside-count-hoist, 0);
+  --total-count-input: var(--total-count-hoist, 0);
+
+  /*
+    q = (p_in xor (p_in << 13))
+    r = (q xor (q >> 17))
+    p = (r xor (r << 5))
+  */
+  --q31: calc((var(--p31-input) - var(--p18-input)) * (var(--p31-input) - var(--p18-input)));
+  --q30: calc((var(--p30-input) - var(--p17-input)) * (var(--p30-input) - var(--p17-input)));
+  --q29: calc((var(--p29-input) - var(--p16-input)) * (var(--p29-input) - var(--p16-input)));
+  --q28: calc((var(--p28-input) - var(--p15-input)) * (var(--p28-input) - var(--p15-input)));
+  --q27: calc((var(--p27-input) - var(--p14-input)) * (var(--p27-input) - var(--p14-input)));
+  --q26: calc((var(--p26-input) - var(--p13-input)) * (var(--p26-input) - var(--p13-input)));
+  --q25: calc((var(--p25-input) - var(--p12-input)) * (var(--p25-input) - var(--p12-input)));
+  --q24: calc((var(--p24-input) - var(--p11-input)) * (var(--p24-input) - var(--p11-input)));
+  --q23: calc((var(--p23-input) - var(--p10-input)) * (var(--p23-input) - var(--p10-input)));
+  --q22: calc((var(--p22-input) - var(--p09-input)) * (var(--p22-input) - var(--p09-input)));
+  --q21: calc((var(--p21-input) - var(--p08-input)) * (var(--p21-input) - var(--p08-input)));
+  --q20: calc((var(--p20-input) - var(--p07-input)) * (var(--p20-input) - var(--p07-input)));
+  --q19: calc((var(--p19-input) - var(--p06-input)) * (var(--p19-input) - var(--p06-input)));
+  --q18: calc((var(--p18-input) - var(--p05-input)) * (var(--p18-input) - var(--p05-input)));
+  --q17: calc((var(--p17-input) - var(--p04-input)) * (var(--p17-input) - var(--p04-input)));
+  --q16: calc((var(--p16-input) - var(--p03-input)) * (var(--p16-input) - var(--p03-input)));
+  --q15: calc((var(--p15-input) - var(--p02-input)) * (var(--p15-input) - var(--p02-input)));
+  --q14: calc((var(--p14-input) - var(--p01-input)) * (var(--p14-input) - var(--p01-input)));
+  --q13: calc((var(--p13-input) - var(--p00-input)) * (var(--p13-input) - var(--p00-input)));
+  --q12: calc((var(--p12-input) - 0) * (var(--p12-input) - 0));
+  --q11: calc((var(--p11-input) - 0) * (var(--p11-input) - 0));
+  --q10: calc((var(--p10-input) - 0) * (var(--p10-input) - 0));
+  --q09: calc((var(--p09-input) - 0) * (var(--p09-input) - 0));
+  --q08: calc((var(--p08-input) - 0) * (var(--p08-input) - 0));
+  --q07: calc((var(--p07-input) - 0) * (var(--p07-input) - 0));
+  --q06: calc((var(--p06-input) - 0) * (var(--p06-input) - 0));
+  --q05: calc((var(--p05-input) - 0) * (var(--p05-input) - 0));
+  --q04: calc((var(--p04-input) - 0) * (var(--p04-input) - 0));
+  --q03: calc((var(--p03-input) - 0) * (var(--p03-input) - 0));
+  --q02: calc((var(--p02-input) - 0) * (var(--p02-input) - 0));
+  --q01: calc((var(--p01-input) - 0) * (var(--p01-input) - 0));
+  --q00: calc((var(--p00-input) - 0) * (var(--p00-input) - 0));
+
+  --r31: calc((var(--q31) - 0) * (var(--q31) - 0));
+  --r30: calc((var(--q30) - 0) * (var(--q30) - 0));
+  --r29: calc((var(--q29) - 0) * (var(--q29) - 0));
+  --r28: calc((var(--q28) - 0) * (var(--q28) - 0));
+  --r27: calc((var(--q27) - 0) * (var(--q27) - 0));
+  --r26: calc((var(--q26) - 0) * (var(--q26) - 0));
+  --r25: calc((var(--q25) - 0) * (var(--q25) - 0));
+  --r24: calc((var(--q24) - 0) * (var(--q24) - 0));
+  --r23: calc((var(--q23) - 0) * (var(--q23) - 0));
+  --r22: calc((var(--q22) - 0) * (var(--q22) - 0));
+  --r21: calc((var(--q21) - 0) * (var(--q21) - 0));
+  --r20: calc((var(--q20) - 0) * (var(--q20) - 0));
+  --r19: calc((var(--q19) - 0) * (var(--q19) - 0));
+  --r18: calc((var(--q18) - 0) * (var(--q18) - 0));
+  --r17: calc((var(--q17) - 0) * (var(--q17) - 0));
+  --r16: calc((var(--q16) - 0) * (var(--q16) - 0));
+  --r15: calc((var(--q15) - 0) * (var(--q15) - 0));
+  --r14: calc((var(--q14) - var(--q31)) * (var(--q14) - var(--q31)));
+  --r13: calc((var(--q13) - var(--q30)) * (var(--q13) - var(--q30)));
+  --r12: calc((var(--q12) - var(--q29)) * (var(--q12) - var(--q29)));
+  --r11: calc((var(--q11) - var(--q28)) * (var(--q11) - var(--q28)));
+  --r10: calc((var(--q10) - var(--q27)) * (var(--q10) - var(--q27)));
+  --r09: calc((var(--q09) - var(--q26)) * (var(--q09) - var(--q26)));
+  --r08: calc((var(--q08) - var(--q25)) * (var(--q08) - var(--q25)));
+  --r07: calc((var(--q07) - var(--q24)) * (var(--q07) - var(--q24)));
+  --r06: calc((var(--q06) - var(--q23)) * (var(--q06) - var(--q23)));
+  --r05: calc((var(--q05) - var(--q22)) * (var(--q05) - var(--q22)));
+  --r04: calc((var(--q04) - var(--q21)) * (var(--q04) - var(--q21)));
+  --r03: calc((var(--q03) - var(--q20)) * (var(--q03) - var(--q20)));
+  --r02: calc((var(--q02) - var(--q19)) * (var(--q02) - var(--q19)));
+  --r01: calc((var(--q01) - var(--q18)) * (var(--q01) - var(--q18)));
+  --r00: calc((var(--q00) - var(--q17)) * (var(--q00) - var(--q17)));
+
+  --p31: calc((var(--r31) - var(--r26)) * (var(--r31) - var(--r26)));
+  --p30: calc((var(--r30) - var(--r25)) * (var(--r30) - var(--r25)));
+  --p29: calc((var(--r29) - var(--r24)) * (var(--r29) - var(--r24)));
+  --p28: calc((var(--r28) - var(--r23)) * (var(--r28) - var(--r23)));
+  --p27: calc((var(--r27) - var(--r22)) * (var(--r27) - var(--r22)));
+  --p26: calc((var(--r26) - var(--r21)) * (var(--r26) - var(--r21)));
+  --p25: calc((var(--r25) - var(--r20)) * (var(--r25) - var(--r20)));
+  --p24: calc((var(--r24) - var(--r19)) * (var(--r24) - var(--r19)));
+  --p23: calc((var(--r23) - var(--r18)) * (var(--r23) - var(--r18)));
+  --p22: calc((var(--r22) - var(--r17)) * (var(--r22) - var(--r17)));
+  --p21: calc((var(--r21) - var(--r16)) * (var(--r21) - var(--r16)));
+  --p20: calc((var(--r20) - var(--r15)) * (var(--r20) - var(--r15)));
+  --p19: calc((var(--r19) - var(--r14)) * (var(--r19) - var(--r14)));
+  --p18: calc((var(--r18) - var(--r13)) * (var(--r18) - var(--r13)));
+  --p17: calc((var(--r17) - var(--r12)) * (var(--r17) - var(--r12)));
+  --p16: calc((var(--r16) - var(--r11)) * (var(--r16) - var(--r11)));
+  --p15: calc((var(--r15) - var(--r10)) * (var(--r15) - var(--r10)));
+  --p14: calc((var(--r14) - var(--r09)) * (var(--r14) - var(--r09)));
+  --p13: calc((var(--r13) - var(--r08)) * (var(--r13) - var(--r08)));
+  --p12: calc((var(--r12) - var(--r07)) * (var(--r12) - var(--r07)));
+  --p11: calc((var(--r11) - var(--r06)) * (var(--r11) - var(--r06)));
+  --p10: calc((var(--r10) - var(--r05)) * (var(--r10) - var(--r05)));
+  --p09: calc((var(--r09) - var(--r04)) * (var(--r09) - var(--r04)));
+  --p08: calc((var(--r08) - var(--r03)) * (var(--r08) - var(--r03)));
+  --p07: calc((var(--r07) - var(--r02)) * (var(--r07) - var(--r02)));
+  --p06: calc((var(--r06) - var(--r01)) * (var(--r06) - var(--r01)));
+  --p05: calc((var(--r05) - var(--r00)) * (var(--r05) - var(--r00)));
+  --p04: calc((var(--r04) - 0) * (var(--r04) - 0));
+  --p03: calc((var(--r03) - 0) * (var(--r03) - 0));
+  --p02: calc((var(--r02) - 0) * (var(--r02) - 0));
+  --p01: calc((var(--r01) - 0) * (var(--r01) - 0));
+  --p00: calc((var(--r00) - 0) * (var(--r00) - 0));
+
+  --x: calc(
+    (
+      var(--p31) * 32768 +
+      var(--p30) * 16384 +
+      var(--p29) * 8192 +
+      var(--p28) * 4096 +
+      var(--p27) * 2048 +
+      var(--p26) * 1024 +
+      var(--p25) * 512 +
+      var(--p24) * 256 +
+      var(--p23) * 128 +
+      var(--p22) * 64 +
+      var(--p21) * 32 +
+      var(--p20) * 16 +
+      var(--p19) * 8 +
+      var(--p18) * 4 +
+      var(--p17) * 2 +
+      var(--p16) * 1
+    ) / 65535
+  );
+  --y: calc(
+    (
+      var(--p15) * 32768 +
+      var(--p14) * 16384 +
+      var(--p13) * 8192 +
+      var(--p12) * 4096 +
+      var(--p11) * 2048 +
+      var(--p10) * 1024 +
+      var(--p09) * 512 +
+      var(--p08) * 256 +
+      var(--p07) * 128 +
+      var(--p06) * 64 +
+      var(--p05) * 32 +
+      var(--p04) * 16 +
+      var(--p03) * 8 +
+      var(--p02) * 4 +
+      var(--p01) * 2 +
+      var(--p00) * 1
+    ) / 65535
+  );
+  --x-mod: calc(var(--x) * 2 - 1);
+  --y-mod: calc(var(--y) * 2 - 1);
+  /* floor(x) = round(x - 0.5) */
+  --is-inside: calc(clamp(0, -1 * (var(--x-mod) * var(--x-mod) + var(--y-mod) * var(--y-mod)) + 2, 1) - 0.5);
+
+  --inside-count: calc(var(--inside-count-input) + var(--is-inside));
+  --total-count: calc(var(--total-count-input) + 1);
+}
+.display-frame-count::after {
+  counter-reset: frame var(--frame-count);
+  content: "frame-count: " counter(frame);
+}
+.display-p-binary::after {
+  counter-reset:
+    p31 var(--p31)
+    p30 var(--p30)
+    p29 var(--p29)
+    p28 var(--p28)
+    p27 var(--p27)
+    p26 var(--p26)
+    p25 var(--p25)
+    p24 var(--p24)
+    p23 var(--p23)
+    p22 var(--p22)
+    p21 var(--p21)
+    p20 var(--p20)
+    p19 var(--p19)
+    p18 var(--p18)
+    p17 var(--p17)
+    p16 var(--p16)
+    p15 var(--p15)
+    p14 var(--p14)
+    p13 var(--p13)
+    p12 var(--p12)
+    p11 var(--p11)
+    p10 var(--p10)
+    p09 var(--p09)
+    p08 var(--p08)
+    p07 var(--p07)
+    p06 var(--p06)
+    p05 var(--p05)
+    p04 var(--p04)
+    p03 var(--p03)
+    p02 var(--p02)
+    p01 var(--p01)
+    p00 var(--p00);
+  content:
+    "p = 0b"
+    counter(p31)
+    counter(p30)
+    counter(p29)
+    counter(p28)
+    counter(p27)
+    counter(p26)
+    counter(p25)
+    counter(p24)
+    counter(p23)
+    counter(p22)
+    counter(p21)
+    counter(p20)
+    counter(p19)
+    counter(p18)
+    counter(p17)
+    counter(p16)
+    counter(p15)
+    counter(p14)
+    counter(p13)
+    counter(p12)
+    counter(p11)
+    counter(p10)
+    counter(p09)
+    counter(p08)
+    counter(p07)
+    counter(p06)
+    counter(p05)
+    counter(p04)
+    counter(p03)
+    counter(p02)
+    counter(p01)
+    counter(p00);
+}
+.display-x::after {
+  counter-reset: x calc(var(--x-mod) * 100);
+  content: "x = " counter(x);
+}
+.display-y::after {
+  counter-reset: y calc(var(--y-mod) * 100);
+  content: "y = " counter(y);
+}
+.display-inner::after {
+  counter-reset: inside var(--is-inside);
+  content: "is inside? : " counter(inside);
+}
+.display-count::after {
+  counter-reset: inside var(--inside-count) total var(--total-count);
+  content: "count : " counter(inside) "/" counter(total);
+}
+.display-pi::after {
+  --pi: calc(var(--inside-count) / var(--total-count) * 4);
+  --floor-pi: calc(var(--pi) - 0.5);
+  --decimal-part: calc(var(--pi) - var(--floor-pi));
+
+  --pi-decimal00-in: calc((var(--pi) - var(--floor-pi)) * 10);
+  --pi-decimal00: calc(var(--pi-decimal00-in) - 0.5);
+
+  --pi-decimal01-in: calc((var(--pi-decimal00-in) - var(--pi-decimal00)) * 10);
+  --pi-decimal01: calc(var(--pi-decimal01-in) - 0.5);
+
+  --pi-decimal02-in: calc((var(--pi-decimal01-in) - var(--pi-decimal01)) * 10);
+  --pi-decimal02: calc(var(--pi-decimal02-in) - 0.5);
+
+  --pi-decimal03-in: calc((var(--pi-decimal02-in) - var(--pi-decimal02)) * 10);
+  --pi-decimal03: calc(var(--pi-decimal03-in) - 0.5);
+  
+  --pi-decimal04-in: calc((var(--pi-decimal03-in) - var(--pi-decimal03)) * 10);
+  --pi-decimal04: calc(var(--pi-decimal04-in) - 0.5);
+
+  --pi-decimal05-in: calc((var(--pi-decimal04-in) - var(--pi-decimal04)) * 10);
+  --pi-decimal05: calc(var(--pi-decimal05-in) - 0.5);
+
+  --pi-decimal06-in: calc((var(--pi-decimal05-in) - var(--pi-decimal05)) * 10);
+  --pi-decimal06: calc(var(--pi-decimal06-in) - 0.5);
+
+  --pi-decimal07-in: calc((var(--pi-decimal06-in) - var(--pi-decimal06)) * 10);
+  --pi-decimal07: calc(var(--pi-decimal07-in) - 0.5);
+
+  --pi-decimal08-in: calc((var(--pi-decimal07-in) - var(--pi-decimal07)) * 10);
+  --pi-decimal08: calc(var(--pi-decimal08-in) - 0.5);
+
+  --pi-decimal09-in: calc((var(--pi-decimal08-in) - var(--pi-decimal08)) * 10);
+  --pi-decimal09: calc(var(--pi-decimal09-in) - 0.5);
+
+  --pi-decimal10-in: calc((var(--pi-decimal09-in) - var(--pi-decimal09)) * 10);
+  --pi-decimal10: calc(var(--pi-decimal10-in) - 0.5);
+
+  counter-reset:
+    floor-pi calc(var(--floor-pi))
+    pi-decimal00 calc(var(--pi-decimal00))
+    pi-decimal01 calc(var(--pi-decimal01))
+    pi-decimal02 calc(var(--pi-decimal02))
+    pi-decimal03 calc(var(--pi-decimal03))
+    pi-decimal04 calc(var(--pi-decimal04))
+    pi-decimal05 calc(var(--pi-decimal05))
+    pi-decimal06 calc(var(--pi-decimal06))
+    pi-decimal07 calc(var(--pi-decimal07))
+    pi-decimal08 calc(var(--pi-decimal08))
+    pi-decimal09 calc(var(--pi-decimal09))
+    pi-decimal10 calc(var(--pi-decimal10));
+  content:
+    "pi : "
+    counter(floor-pi)
+    "."
+    counter(pi-decimal00)
+    counter(pi-decimal01)
+    counter(pi-decimal02)
+    counter(pi-decimal03)
+    counter(pi-decimal04)
+    counter(pi-decimal05)
+    counter(pi-decimal06)
+    counter(pi-decimal07)
+    counter(pi-decimal08)
+    counter(pi-decimal09)
+    counter(pi-decimal10);
+}
+.canvas {
+  position: relative;
+  max-width: 275px;
+  aspect-ratio: 1/1;
+  margin-inline: auto;
+  margin-block: 2rem;
+  outline: 2px solid black;
+}
+.point {
+  position: absolute;
+  left: calc(var(--x) * 100%);
+  bottom: calc(var(--y) * 100%);
+  transform: translate(-50%, 50%);
+  width: 3%;
+  height: 3%;
+  background-color: rgb(calc(var(--is-inside) * 255), 0, calc((1 - var(--is-inside)) * 255));
+  border-radius: 100%;
+}
+.circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  outline: 2px solid black;
+}
+
+@keyframes hoist {
+  0%, 100% {
+    --frame-hoist: var(--frame-captured, 0);
+    --p31-hoist: var(--p31-captured, 1);
+    --p30-hoist: var(--p30-captured, 0);
+    --p29-hoist: var(--p29-captured, 0);
+    --p28-hoist: var(--p28-captured, 1);
+    --p27-hoist: var(--p27-captured, 0);
+    --p26-hoist: var(--p26-captured, 0);
+    --p25-hoist: var(--p25-captured, 1);
+    --p24-hoist: var(--p24-captured, 0);
+    --p23-hoist: var(--p23-captured, 1);
+    --p22-hoist: var(--p22-captured, 1);
+    --p21-hoist: var(--p21-captured, 0);
+    --p20-hoist: var(--p20-captured, 1);
+    --p19-hoist: var(--p19-captured, 0);
+    --p18-hoist: var(--p18-captured, 1);
+    --p17-hoist: var(--p17-captured, 1);
+    --p16-hoist: var(--p16-captured, 0);
+    --p15-hoist: var(--p15-captured, 1);
+    --p14-hoist: var(--p14-captured, 0);
+    --p13-hoist: var(--p13-captured, 0);
+    --p12-hoist: var(--p12-captured, 0);
+    --p11-hoist: var(--p11-captured, 1);
+    --p10-hoist: var(--p10-captured, 1);
+    --p09-hoist: var(--p09-captured, 0);
+    --p08-hoist: var(--p08-captured, 0);
+    --p07-hoist: var(--p07-captured, 1);
+    --p06-hoist: var(--p06-captured, 0);
+    --p05-hoist: var(--p05-captured, 1);
+    --p04-hoist: var(--p04-captured, 0);
+    --p03-hoist: var(--p03-captured, 0);
+    --p02-hoist: var(--p02-captured, 0);
+    --p01-hoist: var(--p01-captured, 1);
+    --p00-hoist: var(--p00-captured, 0);
+    --inside-count-hoist: var(--inside-count-captured, 0);
+    --total-count-hoist: var(--total-count-captured, 0);
+  }
+}
+@keyframes capture {
+  0%, 100% {
+    --frame-captured: var(--frame-count);
+    --p31-captured: var(--p31);
+    --p30-captured: var(--p30);
+    --p29-captured: var(--p29);
+    --p28-captured: var(--p28);
+    --p27-captured: var(--p27);
+    --p26-captured: var(--p26);
+    --p25-captured: var(--p25);
+    --p24-captured: var(--p24);
+    --p23-captured: var(--p23);
+    --p22-captured: var(--p22);
+    --p21-captured: var(--p21);
+    --p20-captured: var(--p20);
+    --p19-captured: var(--p19);
+    --p18-captured: var(--p18);
+    --p17-captured: var(--p17);
+    --p16-captured: var(--p16);
+    --p15-captured: var(--p15);
+    --p14-captured: var(--p14);
+    --p13-captured: var(--p13);
+    --p12-captured: var(--p12);
+    --p11-captured: var(--p11);
+    --p10-captured: var(--p10);
+    --p09-captured: var(--p09);
+    --p08-captured: var(--p08);
+    --p07-captured: var(--p07);
+    --p06-captured: var(--p06);
+    --p05-captured: var(--p05);
+    --p04-captured: var(--p04);
+    --p03-captured: var(--p03);
+    --p02-captured: var(--p02);
+    --p01-captured: var(--p01);
+    --p00-captured: var(--p00);
+    --inside-count-captured: var(--inside-count);
+    --total-count-captured: var(--total-count);
+  }
+}
+
+@property --frame-count { syntax: "<integer>"; initial-value: 0; inherits: true; }
+/* initial value of p is 2463534242 (0b10010010110101101000110010100010)*/
+@property --p31 { syntax: "<integer>"; initial-value: 1; inherits: true; }
+@property --p30 { syntax: "<integer>"; initial-value: 0; inherits: true; }
+@property --p29 { syntax: "<integer>"; initial-value: 0; inherits: true; }
+@property --p28 { syntax: "<integer>"; initial-value: 1; inherits: true; }
+@property --p27 { syntax: "<integer>"; initial-value: 0; inherits: true; }
+@property --p26 { syntax: "<integer>"; initial-value: 0; inherits: true; }
+@property --p25 { syntax: "<integer>"; initial-value: 1; inherits: true; }
+@property --p24 { syntax: "<integer>"; initial-value: 0; inherits: true; }
+@property --p23 { syntax: "<integer>"; initial-value: 1; inherits: true; }
+@property --p22 { syntax: "<integer>"; initial-value: 1; inherits: true; }
+@property --p21 { syntax: "<integer>"; initial-value: 0; inherits: true; }
+@property --p20 { syntax: "<integer>"; initial-value: 1; inherits: true; }
+@property --p19 { syntax: "<integer>"; initial-value: 0; inherits: true; }
+@property --p18 { syntax: "<integer>"; initial-value: 1; inherits: true; }
+@property --p17 { syntax: "<integer>"; initial-value: 1; inherits: true; }
+@property --p16 { syntax: "<integer>"; initial-value: 0; inherits: true; }
+@property --p15 { syntax: "<integer>"; initial-value: 1; inherits: true; }
+@property --p14 { syntax: "<integer>"; initial-value: 0; inherits: true; }
+@property --p13 { syntax: "<integer>"; initial-value: 0; inherits: true; }
+@property --p12 { syntax: "<integer>"; initial-value: 0; inherits: true; }
+@property --p11 { syntax: "<integer>"; initial-value: 1; inherits: true; }
+@property --p10 { syntax: "<integer>"; initial-value: 1; inherits: true; }
+@property --p09 { syntax: "<integer>"; initial-value: 0; inherits: true; }
+@property --p08 { syntax: "<integer>"; initial-value: 0; inherits: true; }
+@property --p07 { syntax: "<integer>"; initial-value: 1; inherits: true; }
+@property --p06 { syntax: "<integer>"; initial-value: 0; inherits: true; }
+@property --p05 { syntax: "<integer>"; initial-value: 1; inherits: true; }
+@property --p04 { syntax: "<integer>"; initial-value: 0; inherits: true; }
+@property --p03 { syntax: "<integer>"; initial-value: 0; inherits: true; }
+@property --p02 { syntax: "<integer>"; initial-value: 0; inherits: true; }
+@property --p01 { syntax: "<integer>"; initial-value: 1; inherits: true; }
+@property --p00 { syntax: "<integer>"; initial-value: 0; inherits: true; }
+/* x, y */
+@property --x     { syntax: "<number>"; initial-value: 0; inherits: true; }
+@property --y     { syntax: "<number>"; initial-value: 0; inherits: true; }
+@property --x-mod { syntax: "<number>"; initial-value: 0; inherits: true; }
+@property --y-mod { syntax: "<number>"; initial-value: 0; inherits: true; }
+/* counters and floor */
+@property --inside-count { syntax: "<integer>"; initial-value: 0; inherits: true; }
+@property --total-count { syntax: "<integer>"; initial-value: 0; inherits: true; }
+@property --is-inside { syntax: "<integer>"; initial-value: 0; inherits: true; }
+@property --floor-pi { syntax: "<integer>"; initial-value: 0; inherits: false; }
+@property --pi-decimal00 { syntax: "<integer>"; initial-value: 0; inherits: false; }
+@property --pi-decimal01 { syntax: "<integer>"; initial-value: 0; inherits: false; }
+@property --pi-decimal02 { syntax: "<integer>"; initial-value: 0; inherits: false; }
+@property --pi-decimal03 { syntax: "<integer>"; initial-value: 0; inherits: false; }
+@property --pi-decimal04 { syntax: "<integer>"; initial-value: 0; inherits: false; }
+@property --pi-decimal05 { syntax: "<integer>"; initial-value: 0; inherits: false; }
+@property --pi-decimal06 { syntax: "<integer>"; initial-value: 0; inherits: false; }
+@property --pi-decimal07 { syntax: "<integer>"; initial-value: 0; inherits: false; }
+@property --pi-decimal08 { syntax: "<integer>"; initial-value: 0; inherits: false; }
+@property --pi-decimal09 { syntax: "<integer>"; initial-value: 0; inherits: false; }
+@property --pi-decimal10 { syntax: "<integer>"; initial-value: 0; inherits: false; }
+
+
+.cpu {
+  position: relative; list-style: none;
+}
+.cpu > * {
+  position: absolute;
+  inset: 0px;
+  width: 0px;
+}
+.cpu > .phase-0 {
+  width: 100%;
+}
+.cpu > .phase-0:hover + .phase-1 {
+  width: 100%;
+}
+.cpu > .phase-1:hover + .phase-2 {
+  width: 100%;
+}
+.cpu > .phase-2:hover + .phase-3 {
+  width: 100%;
+}
+
+body:has(.phase-0:hover) {
+  animation-play-state: paused, running;
+}
+body:has(.phase-1:hover) {
+  animation-play-state: paused, paused;
+}
+body:has(.phase-2:hover) {
+  animation-play-state: running, paused;
+}
+body:has(.phase-3:hover) {
+  animation-play-state: paused, paused;
+}
+
+/* styling */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  margin-inline: auto;
+  padding-inline: 4vw;
+  max-width: 1120px;
+}
+body {
+  min-height: 100vh;
+  font-family: system-ui,
+               -apple-system,
+               "Segoe UI",
+               Roboto,
+               "Helvetica Neue",
+               "Noto Sans",
+               "Liberation Sans",
+               Arial,
+               sans-serif;
+  line-height: 1.5;
+}
+header {
+  background-color: #212529;
+  color: #eee;
+  padding-block: 0.5em;
+}
+h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding-block: 0.3125rem;
+}
+h2 {
+  font-size: 1.5rem;
+  padding-block: 0.45rem;
+}
+header > .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header a {
+  color: #eee;
+}
+main {
+  padding-block: 1.75rem;
+}
+div[class^="display"] {
+  font-size: 1.2rem;
+  margin-block: 0.2rem;
+}
+.cpu {
+  padding: 20px;
+  display: flex;
+  max-width: 300px;
+  border: 3px solid black;
+  justify-content: center;
+  margin-block: 2rem 5rem;
+}
+.cpu::after {
+  content: "Hover me to calculate";
+}
+.cpu:hover {
+  border: 3px solid red;
+}
+.cpu:hover::after {
+  content: "Calculating..."
+}
+.description {
+  margin-block-start: 1rem;
+}
+.note {
+  color: #664d03;
+  background-color: #fff3cd;
+  border: 1px solid #ffe69c;
+  padding: 1rem;
+  margin-block: 1.5rem;
+  border-radius: 0.375rem;
+}

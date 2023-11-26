@@ -232,7 +232,7 @@ body {
     p01 var(--p01)
     p00 var(--p00);
   content:
-    "p = 0b"
+    "rand = 0b"
     counter(p31)
     counter(p30)
     counter(p29)
@@ -280,43 +280,35 @@ body {
 }
 .display-count::after {
   counter-reset: inside var(--inside-count) total var(--total-count);
-  content: "count : " counter(inside) "/" counter(total);
+  content: counter(total) " drops: " counter(inside) " landed in circle";
 }
 .display-pi::after {
+  font-size: 1.5rem;
+
   --pi: calc(var(--inside-count) / var(--total-count) * 4);
   --floor-pi: calc(var(--pi) - 0.5);
   --decimal-part: calc(var(--pi) - var(--floor-pi));
 
   --pi-decimal00-in: calc((var(--pi) - var(--floor-pi)) * 10);
   --pi-decimal00: calc(var(--pi-decimal00-in) - 0.5);
-
   --pi-decimal01-in: calc((var(--pi-decimal00-in) - var(--pi-decimal00)) * 10);
   --pi-decimal01: calc(var(--pi-decimal01-in) - 0.5);
-
   --pi-decimal02-in: calc((var(--pi-decimal01-in) - var(--pi-decimal01)) * 10);
   --pi-decimal02: calc(var(--pi-decimal02-in) - 0.5);
-
   --pi-decimal03-in: calc((var(--pi-decimal02-in) - var(--pi-decimal02)) * 10);
   --pi-decimal03: calc(var(--pi-decimal03-in) - 0.5);
-  
   --pi-decimal04-in: calc((var(--pi-decimal03-in) - var(--pi-decimal03)) * 10);
   --pi-decimal04: calc(var(--pi-decimal04-in) - 0.5);
-
   --pi-decimal05-in: calc((var(--pi-decimal04-in) - var(--pi-decimal04)) * 10);
   --pi-decimal05: calc(var(--pi-decimal05-in) - 0.5);
-
   --pi-decimal06-in: calc((var(--pi-decimal05-in) - var(--pi-decimal05)) * 10);
   --pi-decimal06: calc(var(--pi-decimal06-in) - 0.5);
-
   --pi-decimal07-in: calc((var(--pi-decimal06-in) - var(--pi-decimal06)) * 10);
   --pi-decimal07: calc(var(--pi-decimal07-in) - 0.5);
-
   --pi-decimal08-in: calc((var(--pi-decimal07-in) - var(--pi-decimal07)) * 10);
   --pi-decimal08: calc(var(--pi-decimal08-in) - 0.5);
-
   --pi-decimal09-in: calc((var(--pi-decimal08-in) - var(--pi-decimal08)) * 10);
   --pi-decimal09: calc(var(--pi-decimal09-in) - 0.5);
-
   --pi-decimal10-in: calc((var(--pi-decimal09-in) - var(--pi-decimal09)) * 10);
   --pi-decimal10: calc(var(--pi-decimal10-in) - 0.5);
 
@@ -334,7 +326,7 @@ body {
     pi-decimal09 calc(var(--pi-decimal09))
     pi-decimal10 calc(var(--pi-decimal10));
   content:
-    "pi : "
+    "pi ≒ "
     counter(floor-pi)
     "."
     counter(pi-decimal00)
